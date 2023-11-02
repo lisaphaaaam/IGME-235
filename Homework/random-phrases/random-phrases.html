@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisine Picker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="cuisine">
+            <header>
+                <h1>Can't Decide What To Eat? Let Me For You!</h1>
+            </header>
+        </div>
+
+        <div id="button">
+            <button>Help Me!</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Lisa Pham</p>
+        </footer>
+    </div>
+
+<script>
+    "use strict";
+    // reference to elements in HTML
+    const container = document.getElementById("container");
+    const cuisineChosen = container.querySelector("h1");
+
+    let cuisines = {"American": "american.jpg", 
+                    "Chinese": "chinese.jpg",
+                    "Italian": "italian.jpg", 
+                    "Mexican": "mexican.jpg", 
+                    "Vietnamese": "vietnamese.jpg"}
+    
+    function chooseCuisine(){
+        // Get a random cuisine from the cuisines array
+        const cuisinesArray = Object.keys(cuisines);
+        const randomCuisine = cuisinesArray[Math.floor(Math.random() * cuisinesArray.length)];
+
+        // Get image filename
+        const backgroundImage = cuisines[randomCuisine];
+
+        // Update background image
+        const container = document.getElementById("container");
+        container.style.backgroundImage = `url(images/${backgroundImage})`;
+        
+        // change title to cuisine chosen
+        cuisineChosen.textContent = randomCuisine;
+    }
+
+    // Add a click event listener to the button
+    const button = document.getElementById("button");
+    button.addEventListener("click", chooseCuisine);
+
+</script>
+</body>
+</html>

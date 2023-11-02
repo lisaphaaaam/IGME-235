@@ -1,0 +1,58 @@
+body{
+    font-family: 'Fragment Mono', monospace;
+    background-color: darksalmon;
+}
+@media screen and (max-width: 760px){
+    #container {
+        min-width: 0;
+        max-width: 80%;
+        width: 80vw;
+        height: auto;
+        margin: 0;
+        flex: 1 1 auto;
+    }
+}
+#container{
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url(images/cuisines.jpg);
+    background-size: 800px;
+    width: 800px;
+    height: 500px;
+}
+
+header{
+    text-align: center; 
+}
+h1{
+    font-size: 42px;
+    background-color: aliceblue;
+}
+
+button{
+    font-size: 20px;
+    flex: 1 1 200px;
+    max-height: 100px;
+    width: 150px;
+    border-style: none;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+    background-color:darksalmon;
+    box-shadow: 2px 2px 10px rgb(177, 105, 66);
+    transition: 0.5s;
+}
+button:hover{
+    background-color:rgb(255, 138, 29);
+}
+button:active{
+    background-color: red;
+}
+
+footer{
+
+    color: white;
+}

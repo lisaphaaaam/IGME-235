@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web Apps-5</title>
+	<style>
+		body{
+			font-family:sans-serif;
+		}
+		#colorform{
+			background-color:#dfecdf;
+			color: #111;
+			padding:1em;width:400px;
+		}
+		#colorform p#info{
+			background-color:white;
+			color: black;
+			width:300px;
+			height:100px;
+			padding:.5em;
+		}
+		
+		#colorform legend{ 
+			font-weight:bold;
+			font-size:1.2em;
+		}
+	</style>
+</head>
+<body>
+
+<div id="colorform">
+	<legend>Choose your favorite color!</legend>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupRed" value="red" /> Red</p>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupGreen" value="green" /> Green</p>
+	<p><input type="checkbox" name="colorGroup" id="colorGroupBlue" value="blue" /> Blue</p>
+	<p><button id="colorButton" type="button">Submit</button></p>
+	<p id="info"></p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (){
+        // reference to elements in HTML
+        const colorform = document.getElementById("colorform");
+        const legend = colorform.querySelector("legend");
+        const info = document.getElementById("info");
+        const colorButtons = document.querySelectorAll("input[type ='checkbox']");
+        const submitButton = document.getElementById("colorButton");
+
+		const selectedColors = [];
+
+        // loop - event listener for each button and update info
+        for (let checkbox of colorButtons) {
+            checkbox.addEventListener("change", function () {
+				// if box is checked, push to array
+				// else, checkbox is removed from array
+				if(this.checked)
+				{
+					selectedColors.push(this.value);
+				} 
+				else {
+					const index = selectedColors.indexOf(this.value);
+					if (index !== -1){
+						selectedColors.splice(index, 1);
+					}
+				}
+
+                info.textContent = `You selected the color(s): ${selectedColors.join(", ")}`;
+            });
+        }  
+        
+        // event listener to submit button
+        submitButton.addEventListener("click", function () {
+			const selectedBox = document.querySelector('input[type="checkbox"]:checked');
+
+            // if selected, update with message
+            // else, tell user to select color
+            if (selectedColors.length > 0 || selectedBox) {
+                legend.style.color = selectedBox.value;
+                info.textContent = `Your Final Choice(s): ${selectedColors.join(", ")}`;
+            } 
+			else {
+                info.textContent = "Please select at least a color before submitting.";
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

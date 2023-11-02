@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web Apps-4-HW</title>
+	<style>
+		body{border:1px solid gray;}
+	</style>
+</head>
+<body>
+<h1>My Favorites</h1>
+<h2>My Favorite Colors</h2>
+
+<ol id="colorsList">
+	
+</ol>
+
+<h2>My Favorite Foods</h2>
+
+<ol id="foodsList">
+
+</ol>
+
+<h2>My Favorite Links</h2>
+
+<ol id="linksList">
+	
+</ol>
+
+<script>
+"use strict";
+let colors = ["red","green","blue","purple","pink"];
+let foods = ["apples","broccoli","chicken","eggs"]; 
+/*
+// function for colors and foods
+function createList(listElement,array= ["puppydogs", "butterflies", "lollipops"]) {
+
+  // Loop - array and create list items
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i];
+
+    // Create a list item element
+    let listItem = document.createElement("li");
+
+    // Set the text content of the list item to the array element
+    listItem.textContent = element;
+
+    // Append the list item to the list
+    listElement.appendChild(listItem);
+  }
+}
+*/
+// arrow function
+const createList = (listElement, array = ["puppydogs", "butterflies", "lollipops"]) => {
+  for (let element of array) {
+    let listItem = document.createElement("li");
+    listItem.textContent = element;
+    listElement.appendChild(listItem);
+  }
+};
+
+createList(colorsList, colors);
+createList(foodsList, foods);
+
+// Optional - can you figure out how to pull both the key AND the value
+// from the `links` object literal?
+let links = {
+		"RIT": "http://www.rit.edu",
+		"RWAG" : "https://www.facebook.com/RWAGclub",
+		"New Media Club" : "http://newmediaclub.cias.rit.edu"
+	}
+
+// Get a reference to linksList
+let linksList = document.getElementById("linksList");
+
+// Loop - links object and create list items 
+for (let key in links) {
+  if (links.hasOwnProperty(key)) {
+    let link = links[key];
+
+    // Create a list item element
+    let li = document.createElement("li");
+
+    // Create a link element for list item element
+    let a = document.createElement("a");
+    a.href = link; 
+    a.textContent = key; 
+
+    // Append the link element to the list item
+    li.appendChild(a);
+
+    // Append the list item to the linksList
+    linksList.appendChild(li);
+  }
+}
+
+
+</script>
+</body>
+</html>

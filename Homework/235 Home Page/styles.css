@@ -1,0 +1,51 @@
+body{
+    background-color:#F3C98B;
+    font-size: 15pt;
+}
+
+h1{
+    text-align: center;
+    color: #56acd4;
+    border-bottom: 1px solid #6494AA;
+}
+h2, p, ul{
+    margin-left: 100px;
+    margin-right: 100px;
+    color: #3A405A;
+}
+
+img{
+    width: 250px;
+    height: auto;
+    margin: 0 10px 0 430px;
+}
+
+a, a:link{
+    color: coral;
+}
+a:visited{
+    color: mediumorchid;
+}
+a:hover {
+    color: hotpink;
+}
+a:active{
+    color: dodgerblue;
+}
+
+.info{
+    float: right;
+    margin: 15px 350px 0 0;
+    border: 10px solid #F6839C;
+    background-color: #ffdbda;
+}
+#biop{
+    text-align: center;
+}
+#github{
+    margin-left: 20pt;
+}
+.content{
+    border: 10px solid #F6839C;
+    background-color: #ffecff;
+}
